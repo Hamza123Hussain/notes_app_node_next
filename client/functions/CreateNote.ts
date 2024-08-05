@@ -7,7 +7,7 @@ export const CreateNote = async (
   BG: string
 ) => {
   try {
-    const Response = await axios.post('http://localhost:5000/api/Notes/', {
+    const Response = await axios.post('https://notes-backend-beta-six.vercel.app/api/Notes/', {
       createdBy,
       title, // Ensure this matches the key in your model
       description,
