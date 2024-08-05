@@ -10,7 +10,7 @@ import router from './DataBase/Search.js'
 
 // Enable CORS for all origins
 const corsOptions = {
-  origin: true, // Allow all origins
+  origin: true, // Allow all origins https://notes-app-node-next-9x72.vercel.app/
   optionsSuccessStatus: 200, // For legacy browser support
 }
 

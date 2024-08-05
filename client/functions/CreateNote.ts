@@ -7,15 +7,12 @@ export const CreateNote = async (
   BG: string
 ) => {
   try {
-    const Response = await axios.post(
-      'https://notes-app-node-next.vercel.app/api/Notes/',
-      {
-        createdBy,
-        title, // Ensure this matches the key in your model
-        description,
-        BG,
-      }
-    )
+    const Response = await axios.post('http://localhost:5000/api/Notes/', {
+      createdBy,
+      title, // Ensure this matches the key in your model
+      description,
+      BG,
+    })
     if (Response.status === 201) {
       // Check for status code 201
       return Response.data
