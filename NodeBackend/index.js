@@ -6,7 +6,8 @@ import Router from './DataBase/Crud.js' // Import CRUD router
 import morgan from 'morgan' // Import Morgan for logging HTTP requests
 import helmet from 'helmet' // Import Helmet for securing HTTP headers
 import cors from 'cors' // Import CORS middleware
-import router from './DataBase/Search.js'
+import router from './DataBase/Search.js' // Import search router
+
 // Enable CORS for specific origins
 const allowedOrigins = [
   'http://localhost:3000',
@@ -25,7 +26,10 @@ const corsOptions = {
 }
 
 const app = express() // Initialize an Express application
+
+// Use CORS middleware with specified options
 app.use(cors(corsOptions))
+
 // Middleware to parse incoming JSON requests
 app.use(express.json())
 
@@ -35,18 +39,19 @@ app.use(helmet())
 // HTTP request logger middleware for logging requests in the 'dev' format
 app.use(morgan('dev'))
 
-// Start the server and listen on the specified port
-app.listen(Port, () => {
-  console.log(`PORT IS RUNNING ${Port}`)
-})
-
 // Use the CRUD router for handling requests to '/api/Notes'
 app.use('/api/Notes', Router)
 
+// Use the search router for handling requests to '/api/note'
 app.use('/api/note', router)
 
+// Start the server and listen on the specified port
+app.listen(Port, () => {
+  console.log(`Server is running on port ${Port}`)
+})
+
 // Output the database URL to the console for debugging purposes
-console.log(DB)
+console.log(`Database URL: ${DB}`)
 
 // Connect to the database
 DBconnect()
