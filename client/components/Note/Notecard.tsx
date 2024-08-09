@@ -7,7 +7,6 @@ import { DeleteNote } from '@/functions/DeleteNote'
 import toast from 'react-hot-toast'
 import { useDispatch } from 'react-redux'
 import { RemoveNote } from '@/Redux/NoteSlice'
-import ViewBtn from './View Note'
 
 const Notecard = ({ Note }: { Note: Note }) => {
   const Dispatch = useDispatch()
@@ -29,11 +28,10 @@ const Notecard = ({ Note }: { Note: Note }) => {
         <h3 className=" px-4 text-slate-800">{Note.description}</h3>
       </div>
       <div className=" flex justify-end p-2 gap-3 items-center">
-        <ViewBtn Note={Note} />
         <UpdateBtn Note={Note} />
         <AiOutlineDelete
           onClick={DeleteMe}
-          className=" text-red-500"
+          className=" text-red-500 cursor-pointer"
           size={20}
         />{' '}
       </div>
